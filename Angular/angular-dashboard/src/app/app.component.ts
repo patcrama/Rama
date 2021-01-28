@@ -11,9 +11,10 @@ export class AppComponent {
   constructor(private route:ActivatedRoute){
 
   }
+  /*
   ngOnit(){
     this.route.queryParamMap.subscribe(params ={
       this.name=params['name'];
     });
-  }
+  }*/
 }

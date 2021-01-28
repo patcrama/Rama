@@ -1,1 +1,35 @@
-<p>login works!</p>
+<fieldset>
+    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <p>
+            Form Status: {{ profileForm.status }}
+          </p>    
+    <div class="form-control">
+    <label>
+        UserName
+        <input type="text" formControlName="userName">
+    </label></div>
+    <div class="form-control">
+    <label>
+        Password
+        <input type="text" formControlName="password">  
+    </label></div>
+   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+   <p>
+    "Formvalue:"{{profileForm.value}}
+  </p>
+   <p>
+    <button (click)="updateProfile()">Update Profile</button>
+  </p>
+
+</form>
+</fieldset>
+    
+<!--
+        <input  [formControl] ="userName" required placeholder="UserName" >UserName</div>
+        <div> <button (click)="upDateuserName()">UpdateUserName</button></div>
+    <div class="form-control"><input  type="password" required placeholder="Password" >Password</div>
+   <input  [formControl] ="userName" required placeholder="UserName" >UserName</div>
+        <div> <button (click)="upDateuserName()">UpdateUserName</button></div> 
+<button class="btn primary" routerLink="/empDetails" routerLinkActive="active">Login</button>
+-->
