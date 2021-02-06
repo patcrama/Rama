@@ -1,0 +1,34 @@
+
+<fieldset>
+    <form  [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+        <p>
+            Form Status: {{ userProfileForm.status }}
+          </p>   
+          <div class="form-control">
+            <label>
+                firstName
+                <input type="text" formControlName="firstName">
+            </label></div>
+            <div class="form-control">
+                <label>
+                    lastName
+                    <input type="text" formControlName="lastName">
+                </label></div> 
+    <div class="form-control">
+    <label>
+        UserName
+        <input type="text" formControlName="userName">
+    </label></div>
+    <div class="form-control">
+    <label>
+        Password
+        <input type="text" formControlName="password">  
+    </label></div>
+       
+    <div *ngIf="errorDetails.error">{{errorDetails.message}}</div>
+    <div *ngIf="!errorDetails.error">{{errorDetails.message}}</div>
+   <button type="submit" [disabled]="!userProfileForm.valid">Submit</button>
+
+</form>
+</fieldset>
+    

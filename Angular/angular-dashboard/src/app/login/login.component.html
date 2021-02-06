@@ -1,3 +1,13 @@
+<!--
+<table>
+<tr *ngFor="let user of users">
+    <td>{{user.id}}</td>
+    <td>{{user.userName}}</td>
+    <td>{{user.password}}</td>
+    <td><button (click)="deleteUser(user.id)">DeletUser</button></td>
+</tr>
+</table>-->
+
 <fieldset>
     <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <p>
@@ -13,14 +23,31 @@
         Password
         <input type="text" formControlName="password">  
     </label></div>
-   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+       
+  <!--  <div formArrayName="aliases">
+        <h3>Aliases</h3> <button (click)="addAlias()">Add Aliases</button>
+        <div *ngFor="let alias of aliases.controls; let i=index">
+             The repeated alias template 
+            <label>
+                Alias:
+                <input type="text" [formControlName]="i">
+            </label>
+        </div>
+    </div>-->
 
+    <div *ngIf="errorDetails.error" class="errors">{{errorDetails.message}}</div>
+    <div *ngIf="!errorDetails.error">{{errorDetails.message}}</div>
+   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+<!--
    <p>
-    "Formvalue:"{{profileForm.value}}
+    "Formvalue:"{{JSON.stringify(profileForm.value)}}
+  </p>
+  <p>
+      "Users:" {{users}}
   </p>
    <p>
     <button (click)="updateProfile()">Update Profile</button>
-  </p>
+  </p>-->
 
 </form>
 </fieldset>

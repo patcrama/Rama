@@ -1,0 +1,7 @@
+{
+"usersurl": "http://localhost:3000/users",
+  "postsurl": "http://localhost:3000/posts",
+  "commentsurl": "http://localhost:3000/comments",
+  "profileurl" :" http://localhost:3000/profile"
+
+} 
