@@ -25,15 +25,22 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    this.addUser(this.userProfileForm.value);
-   if (this.userProfileForm.controls['userName'].value=="Rama" &&   
-       this.userProfileForm.controls['password'].value=="krishna"){
-          this.router.navigate(['/empDetails'])
-       }
-     else {
-       
-     }  
+    let pswdrules= /^[A-Za-z]\w{8,14}$/;
+
+    if(this.userProfileForm.controls['password'].value.match(pswdrules) ) { 
+      this.addUser(this.userProfileForm.value);
+      console.log('Passed password validation rules')
+            }
+    else
+    { 
      
+     this.errorDetails.message="Password validation failed, Please verify the password Rules:/^[A-Za-z]\w{8,14}$/";
+     this.errorDetails.error=true;
+     //this.errorDetails.pswdrules=pswdrules;
+    }
+
+  
+    
     console.log(this.userProfileForm.value);
   }
   

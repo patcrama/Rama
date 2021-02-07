@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private Users: UserService,private router: Router) { }
   
   ngOnInit(): void {
-  
     this.profileForm.controls["userName"].valueChanges.subscribe(data=>console.log(data));
     this.Users.getUser()
     .subscribe(response=> 
@@ -39,10 +38,10 @@ export class LoginComponent implements OnInit {
     //this.addUser(this.profileForm.value);
    if (this.profileForm.controls['userName'].value=="Rama" &&   
        this.profileForm.controls['password'].value=="krishna"){
-          this.router.navigate(['/empDetails'])
+          this.router.navigate(['/dashboard'])
        }
      else {
-         this.errorDetails.message="Faild to get empDetails";
+         this.errorDetails.message="Invalid Login or password, Please enter the correct details";
          this.errorDetails.error=true;
        
      }  

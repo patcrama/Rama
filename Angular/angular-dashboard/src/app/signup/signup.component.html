@@ -6,12 +6,12 @@
           </p>   
           <div class="form-control">
             <label>
-                firstName
+                FirstName
                 <input type="text" formControlName="firstName">
             </label></div>
             <div class="form-control">
                 <label>
-                    lastName
+                    LastName
                     <input type="text" formControlName="lastName">
                 </label></div> 
     <div class="form-control">
@@ -25,8 +25,8 @@
         <input type="text" formControlName="password">  
     </label></div>
        
-    <div *ngIf="errorDetails.error">{{errorDetails.message}}</div>
-    <div *ngIf="!errorDetails.error">{{errorDetails.message}}</div>
+    <div *ngIf="errorDetails.error" class="errors">{{errorDetails.message}}</div>
+    <div *ngIf="!errorDetails.error" >{{errorDetails.message}}</div>
    <button type="submit" [disabled]="!userProfileForm.valid">Submit</button>
 
 </form>

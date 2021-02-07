@@ -9,13 +9,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManagerdetailsComponent } from './managerdetails/managerdetails.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EmployeeDetailsComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent,
+    ManagerdetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

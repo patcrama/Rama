@@ -1,2 +1,85 @@
 <p>EmpDetails Works</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td><button (click)="getUserdetails(user)">Edit</button></td>
+    </tr>
+</table>
+
+<fieldset>
+    <form  [formGroup]="userProfileForm1" (click)="updateUserdetails()"> 
+        <p>
+            Form Status: {{ userProfileForm1.status }}
+        </p>
+        <div class="form-control">
+            <label>
+                UserName
+                <input type="text" formControlName="userName">
+            </label>
+        </div>
+        <div class="form-control">
+            <label>
+                Password
+                <input type="text" formControlName="password">
+            </label>
+        </div>
+        <div class="form-control">
+            <label>
+                FirstName
+                <input type="text" formControlName="firstName">
+            </label>
+        </div>
+        <div class="form-control">
+            <label>
+                LastName
+                <input type="text" formControlName="lastName">
+            </label>
+        </div>
+
+        <div *ngIf="errorDetails.error" class="errors">{{errorDetails.message}}</div>
+        <div *ngIf="!errorDetails.error">{{errorDetails.message}}</div>
+        <button type="submit" [disabled]="!userProfileForm1.valid">Submit</button>
+    </form>
+</fieldset>
+
+<!---
+    
+<table style="width:100%">
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+  </table>
+-->
+<!--
+<p>
+    "Users:" {{users| json}}
+</p>
+ 
+
 <button class="btn primary" routerLink="/login" routerLinkActive="active">Logout</button>
+-->

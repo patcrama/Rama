@@ -3,12 +3,28 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManagerdetailsComponent } from './managerdetails/managerdetails.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  { path: 'empDetails', component: EmployeeDetailsComponent},
   { path: 'signUp', component: SignupComponent},
-  { path: ' ', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'home', component: HomeComponent },
+  { path : 'dashboard', 
+    component: DashboardComponent,
+    children: [
+    {
+      path: 'empDetails',
+      component: EmployeeDetailsComponent,
+    },
+    {
+      path: 'managerDetails',
+      component: ManagerdetailsComponent,
+    }  
+  ]
+},
+  { path: '*', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
